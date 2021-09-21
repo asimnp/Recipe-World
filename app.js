@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+const authRoutes = require("./routes/authRoutes");
+
 // Setup environment variable
 require("dotenv").config();
 const { DB_USER, DB_PASSWORD, DB_NAME, PORT } = process.env;
@@ -24,3 +26,4 @@ mongoose
 // routes
 app.get("/", (req, res) => res.render("home"));
 app.get("/smoothies", (req, res) => res.render("smoothies"));
+app.use(authRoutes);
