@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { isEmail } = require("validator");
+const bcrypt = require("bcryptjs");
 
 const Schema = mongoose.Schema;
 
@@ -18,6 +19,13 @@ const userSchema = new Schema({
     trim: true,
     minlength: [8, "Minimum password length is 8 characters"],
   },
+});
+
+// Fire a function after document saved to DB
+userSchema.pre("save", async function (next) {
+  const salt = await bcrypt.genSalt();
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
 });
 
 const User = mongoose.model("user", userSchema);
