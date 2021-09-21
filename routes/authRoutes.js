@@ -30,4 +30,11 @@ Access: Public
 */
 router.post("/login", authController.login_post);
 
+/*
+Route: /logout
+Method: GET
+Access: Public
+*/
+router.get("/logout", authController.logout_get);
+
 module.exports = router;
