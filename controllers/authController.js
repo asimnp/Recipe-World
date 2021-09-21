@@ -13,6 +13,7 @@ Method: POST
 Access: Public
 */
 const signup_post = (req, res) => {
+  const { email, password } = req.body;
   res.send("New user created");
 };
 
@@ -31,6 +32,7 @@ Method: POST
 Access: Public
 */
 const login_post = (req, res) => {
+  const { email, password } = req.body;
   res.send("User logged in");
 };
 

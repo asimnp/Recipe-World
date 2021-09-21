@@ -16,6 +16,9 @@ app.set("view engine", "ejs");
 // Setup static directory
 app.use(express.static("public"));
 
+// Attach data from in request
+app.use(express.json());
+
 // Database connection
 const dbURI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.5j45t.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
 mongoose
