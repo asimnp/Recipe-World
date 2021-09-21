@@ -30,4 +30,4 @@ Access: Public
 */
 router.post("/login", authController.login_post);
 
-module.export = router;
+module.exports = router;
